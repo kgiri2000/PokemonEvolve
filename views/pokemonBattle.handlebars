@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokemon Battle Arena</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1 class="mt-4c">Pokémon Battle Arena</h1>
+
+        <form action="/battle" method="POST">
+           
+            <input type="text" name="pokemon1" id = "p11" required placeholder="Enter first Pokémon">
+            <input type="text" name="pokemon2" id = "p22" required placeholder="Enter second Pokémon">
+
+            <button type="submit">Start Battle</button>
+        </form>
+
+        {{#if error}}
+        <p class="error">{{error}}</p>
+        {{/if}}
+
+        {{#if battle}}
+            <h2>Battle Result</h2>
+            <div class="battle-container">
+                <div class="pokemon" id="pokemon1">
+                    <h3>{{battle.pokemon1.name}}</h3>
+                    <img src="{{battle.pokemon1.sprites}}" class="poke-img">
+                    <p>HP: <span id="hp1">{{battle.pokemon1.hp}}</span></p>
+                    <div class="hp-bar">
+                        <div id="hp-bar1" class="hp-fill" style="width: {{math battle.pokemon1.hp '/' battle.pokemon1.maxHp '*' 100}}%;"></div>
+                    </div>
+                </div>
+
+                <div class="vs">VS</div>
+
+                <div class="pokemon" id="pokemon2">
+                    <h3>{{battle.pokemon2.name}}</h3>
+                    <img src="{{battle.pokemon2.sprites}}" class="poke-img">
+                    <p>HP: <span id="hp2">{{battle.pokemon2.hp}}</span></p>
+                    <div class="hp-bar">
+                        <div id="hp-bar2" class="hp-fill" style="width: {{math battle.pokemon2.hp '/' battle.pokemon2.maxHp '*' 100}}%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+    
+            <ul id="battle-log"></ul>
+
+            <script>
+                let logs = {{{battle_log_js}}};
+            </script>
+            <script src="/js/battle.js"></script>
+            <h3>Winner: {{battle.winner}}</h3>
+        {{else}}
+            <p>No battle data available.</p>
+        {{/if}}
+    </body>
+</html>

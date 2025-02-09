@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Battle</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css"> <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header class="header-bar">
+        <div class="container-fluid d-flex align-items-center">
+            <!-- Left: Logo & Title -->
+            <div class="d-flex align-items-center justify-content-start w-100">
+                <img src="/img/infernape.png" alt="Pokemon Logo" class="logo">
+                <div class="d-flex flex-column ms-2">
+                    <h1 class="title">Pokémon Simulation</h1>
+                    <h1 class="title">Shuriken</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Navigation Tabs -->
+    <div class="container mt-3">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link {{#if isHome}}active{{/if}}" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{#if isInfo}}active{{/if}}" href="/displayPokemon">Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{#if isBattle}}active{{/if}}" href="/pokemonBattle">Battle</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        {{{body}}}  <!-- Dynamic content here -->
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Display Pokémon Stats</title>
+    </head>
+    <body>
+        <div class="container text-center mt-4">
+            <h1 class="pokemon-title">Pokémon Stats Lookup</h1>
+
+            <!-- Pokémon Search Form -->
+            <form action="/pokemon" method="POST" class="pokemon-form">
+                <div class="input-group mb-3">
+                    <input type="text" name="pokemonName" class="form-control" placeholder="Enter Pokémon Name" required>
+                    <button type="submit" class="btn btn-warning">Search</button>
+                </div>
+            </form>
+
+            <!-- Error Message -->
+            {{#if error}}
+                <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+
+            <!-- Pokémon Stats Display -->
+            {{#if pokemon}}
+            <div class="pokemon-card card mx-auto mt-4 shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-capitalize">{{pokemon.name}}</h2>
+                    <h5>
+                        Type(s): 
+                        {{#each pokemon.types}}
+                            <span class="badge bg-warning text-dark">{{this.type.name}}</span>
+                        {{/each}}
+                    </h5>
+                </div>
+
+                <div class="card-body">
+                    <!-- Pokémon Images Side by Side -->
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="text-center mx-3">
+                            <h5>Normal</h5>
+                            <img src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}" class="pokemon-img">
+                        </div>
+                        <div class="text-center mx-3">
+                            <h5>Shiny</h5>
+                            <img src="{{pokemon.sprites.front_shiny}}" alt="Shiny {{pokemon.name}}" class="pokemon-img">
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4"> Base Stats:</h3>
+                    {{#each pokemon.stats}}
+                        <div class="stat-container mb-3">
+                            <strong class="text-capitalize">{{this.stat.name}}</strong>: {{this.base_stat}}
+                            <div class="progress mt-1">
+                                <div class="progress-bar 
+                                    {{#if (eq this.stat.name 'hp')}}hp{{/if}}
+                                    {{#if (eq this.stat.name 'attack')}}attack{{/if}}
+                                    {{#if (eq this.stat.name 'defense')}}defense{{/if}}
+                                    {{#if (eq this.stat.name 'special-attack')}}special-attack{{/if}}
+                                    {{#if (eq this.stat.name 'special-defense')}}special-defense{{/if}}
+                                    {{#if (eq this.stat.name 'speed')}}speed{{/if}}"
+                                    role="progressbar" 
+                                    style="width: {{math this.base_stat "*" 0.8}}%;" 
+                                    aria-valuenow="{{this.base_stat}}" 
+                                    aria-valuemin="0" 
+                                    aria-valuemax="255">
+                                    {{this.base_stat}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </body>
+</html>
