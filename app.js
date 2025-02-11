@@ -166,6 +166,13 @@ async function fetchMoveDetails(pokemon) {
     }
 }
 
+app.get("/pokemonRPG", (req, res) => res.render("pokemonRPG", {isRPG:  true}));
+
+
+
+
+
+
 
 
 
