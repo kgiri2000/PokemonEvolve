@@ -1,23 +1,22 @@
 {
-  "name": "pokemonevolve",
+  "name": "amp-lab2-kgiri2000",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lab ?",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kgiri2000/PokemonEvolve.git"
+    "url": "git+https://github.com/cosc4735sp25/amp-lab2-kgiri2000.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/kgiri2000/PokemonEvolve/issues"
+    "url": "https://github.com/cosc4735sp25/amp-lab2-kgiri2000/issues"
   },
-  "homepage": "https://github.com/kgiri2000/PokemonEvolve#readme",
+  "homepage": "https://github.com/cosc4735sp25/amp-lab2-kgiri2000#readme",
   "dependencies": {
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",

@@ -1,0 +1,46 @@
+/* HEADER STYLING */
+.header-bar {
+    background: linear-gradient(90deg, #ff4d4d, #ffcc00); /* Red to Yellow */
+    padding: 15px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Logo Styling */
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Title Styling */
+.title {
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-left: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* NAVIGATION STYLING */
+.nav-tabs {
+    border-bottom: 3px solid #ffcc00;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #ffcc00;
+    color: black !important;
+    font-weight: bold;
+}
